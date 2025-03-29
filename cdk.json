@@ -1,5 +1,5 @@
 {
-  "app": "npx ts-node --prefer-ts-exts bin/content_boost.ts",
+  "app": "npx ts-node --prefer-ts-exts infrastructure/bin/infrastructure.ts",
   "watch": {
     "include": [
       "**"
@@ -82,6 +82,16 @@
     "@aws-cdk/aws-route53-targets:userPoolDomainNameMethodWithoutCustomResource": true,
     "@aws-cdk/aws-elasticloadbalancingV2:albDualstackWithoutPublicIpv4SecurityGroupRulesDefault": true,
     "@aws-cdk/aws-iam:oidcRejectUnauthorizedConnections": true,
-    "@aws-cdk/core:enableAdditionalMetadataCollection": true
+    "@aws-cdk/core:enableAdditionalMetadataCollection": true,
+    "dev": {
+      "account": "692859921639",
+      "region": "eu-central-1",
+      "CMS_BASE_URL": "https://d2gcu6a9g33c1.cloudfront.net/cms/read/en-US"
+    },
+    "prod": {
+      "account": "036386573931",
+      "region": "eu-central-1",
+      "CMS_BASE_URL": "https://d2gcu6a9g33c1.cloudfront.net/cms/read/en-US"
+    }
   }
 }

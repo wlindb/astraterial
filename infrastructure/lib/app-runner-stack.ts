@@ -8,6 +8,8 @@ import { AppRunnerStackProps } from "../lambda-layer/types";
 
 
 export class AppRunnerStack extends Stack {
+  public readonly service: Service;
+
   constructor(scope: Construct, id: string, props: AppRunnerStackProps) {
     super(scope, id, props);
 
@@ -42,16 +44,12 @@ export class AppRunnerStack extends Stack {
       dest: new DockerImageName(`${repository.repositoryUri}:latest`),
     });
 
-    new Service(this, 'apprunner-service', {
+    this.service = new Service(this, 'apprunner-service', {
       serviceName: 'client',
       source: Source.fromEcr({
         repository: repository,
         imageConfiguration: {
           port: 3000,
-          // environmentVariables: {
-          //   'CMS_BASE_URL': props.cmsBaseUrl,
-          //   'CMS_READ_API_KEY': props.cmsReadApiKey,
-          // },
         },
       }),
       autoDeploymentsEnabled: false,

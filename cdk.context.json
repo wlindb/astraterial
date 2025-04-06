@@ -2,5 +2,21 @@
   "acknowledged-issue-numbers": [
     32775,
     32775
-  ]
+  ],
+  "hosted-zone:account=692859921639:domainName=dev.astraterial.com:region=eu-central-1": {
+    "Id": "/hostedzone/Z02604732V30HP92Q5GBJ",
+    "Name": "dev.astraterial.com."
+  },
+  "hosted-zone:account=692859921639:domainName=dev.astraterial.com:region=us-east-1": {
+    "Id": "/hostedzone/Z02604732V30HP92Q5GBJ",
+    "Name": "dev.astraterial.com."
+  },
+  "hosted-zone:account=036386573931:domainName=www.astraterial.com:region=us-east-1": {
+    "Id": "/hostedzone/Z079809410ATXMCZBVBKB",
+    "Name": "www.astraterial.com."
+  },
+  "hosted-zone:account=036386573931:domainName=www.astraterial.com:region=eu-central-1": {
+    "Id": "/hostedzone/Z079809410ATXMCZBVBKB",
+    "Name": "www.astraterial.com."
+  }
 }

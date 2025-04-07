@@ -46,6 +46,7 @@ const createStacks = async () => {
     },
     cmsBaseUrl: context.cmsBaseUrl,
     cmsReadApiKey: context.cmsReadApiKey,
+    environment: context.environment,
   });
 
   const route53 = new Route53Stack(app, `route53stack-us-east-1-${context.environment}`,

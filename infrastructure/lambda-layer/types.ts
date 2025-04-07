@@ -13,6 +13,7 @@ export type CDKContext = {
 export interface AppRunnerStackProps extends StackProps {
   cmsBaseUrl: string;
   cmsReadApiKey: string;
+  environment: string;
 }
 
 export interface CloudFrontStackProps extends StackProps {

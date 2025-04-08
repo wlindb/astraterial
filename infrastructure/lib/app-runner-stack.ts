@@ -20,6 +20,7 @@ export class AppRunnerStack extends Stack {
         CMS_BASE_URL: props.cmsBaseUrl,
         CMS_READ_API_KEY: props.cmsReadApiKey,
         ENVIRONMENT: props.environment,
+        NEXT_PUBLIC_BASE_URL: `https://${props.domain}`,
       },
     });
 

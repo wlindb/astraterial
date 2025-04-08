@@ -14,6 +14,7 @@ export interface AppRunnerStackProps extends StackProps {
   cmsBaseUrl: string;
   cmsReadApiKey: string;
   environment: string;
+  domain: string;
 }
 
 export interface CloudFrontStackProps extends StackProps {

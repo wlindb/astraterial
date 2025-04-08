@@ -172,6 +172,7 @@ export async function getBlogPost(entryId: string): Promise<{
   id: string;
   body: string;
   featuredimage: string | undefined;
+  lastPublishedOn: Date;
 }> {
   console.log('Fetching blog post with id: ', entryId);
 
@@ -199,6 +200,7 @@ export async function getBlogPost(entryId: string): Promise<{
     id,
     body,
     featuredimage: featuredimage ?? undefined,
+    lastPublishedOn: new Date(post.lastPublishedOn),
   };
 }
 

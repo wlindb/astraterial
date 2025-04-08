@@ -1,6 +1,7 @@
 import { getBlogPost, getBlogPosts } from "@/lib/api";
 import React from "react";
 import parse from "html-react-parser";
+import { baseUrl } from "@/lib/constants";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -9,6 +10,40 @@ export async function generateStaticParams() {
     slug: post.entryId,
   }))
 }
+
+const extractText = (html: string) => {
+  var extracted = "";
+  parse(html, {
+    transform: (_, node, __) => {
+      if (node.type === "text") {
+        extracted += node.nodeValue;
+      }
+    }
+  });
+  return extracted;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
+  const description = extractText(post.body);
+
+  return {
+    title: post.title,
+    description: description,
+    openGraph: {
+      title: post.title,
+      description: description,
+      url: `${baseUrl}/blog/${slug}`,
+      images: [
+        {
+          url: post.featuredimage,
+        },
+      ],
+    },
+  };
+}
+
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

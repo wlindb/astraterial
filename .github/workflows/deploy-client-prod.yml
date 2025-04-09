@@ -22,8 +22,7 @@ jobs:
       working-directory: client
       region: eu-central-1
     secrets:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-key: ${{ secrets.AWS_SECRET_KEY }}
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+      aws-secret-key: ${{ secrets.AWS_SECRET_KEY_PROD }}
       cms-read-api-key: ${{ secrets.CMS_READ_API_KEY_DEV }}
-
 

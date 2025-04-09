@@ -54,7 +54,7 @@ export class AppRunnerStack extends Stack {
           port: 3000,
         },
       }),
-      autoDeploymentsEnabled: false,
+      autoDeploymentsEnabled: true,
     });
   }
 }

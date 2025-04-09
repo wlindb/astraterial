@@ -17,6 +17,9 @@ on:
       cms-base-url:
         type: string
         description: 'Base url of the cms'
+      working-directory:
+        type: string
+        description: 'Path to the working directory'
       region:
         type: string
         description: 'name of the lambda function to update'
@@ -79,6 +82,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Build, tag, and push docker image to Amazon ECR
+        working-directory: ${{ inputs.working-directory }}
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           REPOSITORY: client-repository

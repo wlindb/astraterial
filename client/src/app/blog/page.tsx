@@ -22,7 +22,7 @@ export default async function Blog() {
   const posts = await getBlogPosts();
   const tagline = "Latest Updates";
   const heading = "Blog Posts";
-  const description = "Latest trends, tips, and best practices in for growing your podcast. From AI tools to processes, stay updated with our expert insights.";
+  const description = "Latest trends, tips, and best practices to grow your podcast. From AI tools to processes, stay updated with our expert insights.";
   const buttonText = "Explore all articles";
 
   return (

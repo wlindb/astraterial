@@ -1,9 +1,10 @@
+import { environment } from '@/lib/constants';
 import type { MetadataRoute } from 'next'
 
-const env = process.env.ENVIRONMENT || 'dev';
-
 export default function robots(): MetadataRoute.Robots {
-  return env === 'prod'
+  console.log('Environment:', environment);
+
+  return environment === 'prod'
     ? prodRobots()
     : devRobots();
 }

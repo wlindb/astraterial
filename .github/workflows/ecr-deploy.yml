@@ -23,7 +23,7 @@ on:
       region:
         type: string
         description: 'name of the lambda function to update'
-        default: 'eu-north-1'
+        default: 'eu-central-1'
     secrets:
       aws-access-key-id:
         description: 'AWS Access Key ID'

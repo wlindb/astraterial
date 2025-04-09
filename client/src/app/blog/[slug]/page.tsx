@@ -12,9 +12,9 @@ export async function generateStaticParams() {
 }
 
 const extractText = (html: string) => {
-  var extracted = "";
+  let extracted = "";
   parse(html, {
-    transform: (_, node, __) => {
+    transform: (_, node) => {
       if (node.type === "text") {
         extracted += node.nodeValue;
       }

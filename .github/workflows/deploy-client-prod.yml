@@ -1,0 +1,27 @@
+name: Deploy Client Prod
+
+permissions:
+  id-token: write
+  contents: read
+  actions: read
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - 'client/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: wlindb/astraterial/.github/workflows/ecr-deploy.yml@main
+    with:
+      env: prod
+      base-url: https://www.astraterial.com
+      cms-base-url: https://d2gcu6a9g33c1.cloudfront.net/cms/read/en-US
+    secrets:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-key: ${{ secrets.AWS_SECRET_KEY }}
+      cms-read-api-key: ${{ secrets.CMS_READ_API_KEY_DEV }}
+
+

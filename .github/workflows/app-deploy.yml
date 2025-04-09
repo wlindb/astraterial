@@ -1,0 +1,31 @@
+name: Deploy Application
+
+permissions:
+  id-token: write
+  contents: read
+  actions: read
+
+on:
+  push:
+    branches: ["develop"]
+    paths:
+      - 'infrastructure/**'
+      - 'client/**'
+      # - 'backend/**'
+
+  workflow_dispatch:
+
+concurrency:
+  group: app-deploy-group
+  cancel-in-progress: true # Ensures app-deploy.yaml takes precedence
+
+jobs:
+  build:
+    uses: wlindb/astraterial/.github/workflows/cdk-deploy.yml@main
+    with:
+      env: dev
+    secrets:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-key: ${{ secrets.AWS_SECRET_KEY }}
+      cms-read-api-key: ${{ secrets.CMS_READ_API_KEY_DEV }}
+

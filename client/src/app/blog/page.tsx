@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-  console.log("Blog page");
   const posts = await getBlogPosts();
   const tagline = "Latest Updates";
   const heading = "Blog Posts";

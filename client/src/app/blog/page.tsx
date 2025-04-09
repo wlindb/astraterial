@@ -15,14 +15,14 @@ import {
 
 export const metadata: Metadata = {
   title: `Blog | ${COMPANY_NAME}`,
-  description: "Join the waitlist",
+  description: "Blog",
 };
 
 export default async function Blog() {
   const posts = await getBlogPosts();
   const tagline = "Latest Updates";
   const heading = "Blog Posts";
-  const description = "Latest trends, tips, and best practices in modern web development. From UI components to design systems, stay updated with our expert insights.";
+  const description = "Latest trends, tips, and best practices in for growing your podcast. From AI tools to processes, stay updated with our expert insights.";
   const buttonText = "Explore all articles";
 
   return (

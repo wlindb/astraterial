@@ -17,6 +17,9 @@ on:
       cms-base-url:
         type: string
         description: 'Base url of the cms'
+      analytics-base-url:
+        type: string
+        description: 'Base url of the analytics engine'
       working-directory:
         type: string
         description: 'Path to the working directory'
@@ -33,6 +36,9 @@ on:
         required: true
       cms-read-api-key:
         description: 'CMS Read API key'
+        required: true
+      analytics-api-key:
+        description: 'Analytics API key'
         required: true
 
 concurrency:
@@ -93,6 +99,8 @@ jobs:
           --build-arg NEXT_PUBLIC_BASE_URL=${{ inputs.base-url }} \
           --build-arg CMS_BASE_URL=${{ inputs.cms-base-url }} \
           --build-arg CMS_READ_API_KEY=${{ secrets.cms-read-api-key }} \
+          --build-arg NEXT_PUBLIC_BASE_URL=${{ inputs.analytics-base-url }} \
+          --build-arg NEXT_PUBLIC_POSTHOG_KEY=${{ secrets.analytics-api-key }} \
           -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 

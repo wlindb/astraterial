@@ -21,6 +21,9 @@ on:
       cms-read-api-key:
         description: 'CMS Read API key'
         required: true
+      analytics-api-key:
+        description: 'Analytics API key'
+        required: true
 
 jobs:
   aws_cdk:
@@ -51,9 +54,15 @@ jobs:
           aws-region: "eu-north-1"
 
       - name: Synth stack
-        run: cdk synth --context env=${{ inputs.env }} --context CMS_READ_API_KEY=${{ secrets.cms-read-api-key }}
+        run: |
+          cdk synth --context env=${{ inputs.env }} \
+          --context CMS_READ_API_KEY=${{ secrets.cms-read-api-key }} \
+          --context ANALYTICS_API_KEY=${{ secrets.analytics-api-key }} 
 
       - name: Deploy stack
         run: |
-          cdk deploy --all --context env=${{ inputs.env }} --context CMS_READ_API_KEY=${{ secrets.cms-read-api-key }} --require-approval never --progress events
+          cdk deploy --all --context env=${{ inputs.env }} \
+          --context CMS_READ_API_KEY=${{ secrets.cms-read-api-key }} \
+          --context ANALYTICS_API_KEY=${{ secrets.analytics-api-key }} \
+          --require-approval never --progress events
 

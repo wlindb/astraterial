@@ -19,10 +19,12 @@ jobs:
       env: prod
       base-url: https://www.astraterial.com
       cms-base-url: https://d2gcu6a9g33c1.cloudfront.net/cms/read/en-US
+      analytics-base-url: https://eu.i.posthog.com
       working-directory: client
       region: eu-central-1
     secrets:
       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
       aws-secret-key: ${{ secrets.AWS_SECRET_KEY_PROD }}
       cms-read-api-key: ${{ secrets.CMS_READ_API_KEY_DEV }}
+      analytics-api-key: ${{ secrets.ANALYTICS_API_KEY }}
 

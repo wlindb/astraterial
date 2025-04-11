@@ -7,6 +7,8 @@ export type CDKContext = {
   environment: string;
   cmsBaseUrl: string;
   cmsReadApiKey: string;
+  analyticsbaseurl: string;
+  analyticsApiKey: string;
   domain: string;
 };
 
@@ -14,6 +16,8 @@ export interface AppRunnerStackProps extends StackProps {
   cmsBaseUrl: string;
   cmsReadApiKey: string;
   environment: string;
+  analyticsbaseurl: string;
+  analyticsApiKey: string;
   domain: string;
 }
 

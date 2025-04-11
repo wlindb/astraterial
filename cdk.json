@@ -87,12 +87,14 @@
       "account": "692859921639",
       "region": "eu-central-1",
       "CMS_BASE_URL": "https://d2gcu6a9g33c1.cloudfront.net/cms/read/en-US",
+      "analyticsbaseurl": "https://eu.i.posthog.com",
       "domain": "dev.astraterial.com"
     },
     "prod": {
       "account": "036386573931",
       "region": "eu-central-1",
       "CMS_BASE_URL": "https://d2gcu6a9g33c1.cloudfront.net/cms/read/en-US",
+      "analyticsbaseurl": "https://eu.i.posthog.com",
       "domain": "www.astraterial.com"
     }
   }

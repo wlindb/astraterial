@@ -11,8 +11,9 @@ export const getContext = async (app: cdk.App): Promise<CDKContext> => {
   return new Promise(async (resolve, reject) => {
     try {
       const env = app.node.tryGetContext('env');
-      const { account, region, CMS_BASE_URL: cmsBaseUrl, domain } = app.node.tryGetContext(env);
+      const { account, region, CMS_BASE_URL: cmsBaseUrl, domain, analyticsbaseurl } = app.node.tryGetContext(env);
       const cmsReadApiKey = app.node.tryGetContext('CMS_READ_API_KEY');
+      const analyticsApiKey = app.node.tryGetContext('ANALYTICS_API_KEY');
 
       if (cmsBaseUrl === undefined || cmsBaseUrl.length === 0) {
         throw new Error('Please provide cms base url');
@@ -22,12 +23,15 @@ export const getContext = async (app: cdk.App): Promise<CDKContext> => {
         throw new Error('Please provide cms read api key');
       }
 
+
       return resolve({
         account,
         region,
         environment: env,
         cmsBaseUrl,
         cmsReadApiKey,
+        analyticsbaseurl,
+        analyticsApiKey,
         domain
       });
     } catch (error) {
@@ -47,6 +51,8 @@ const createStacks = async () => {
     cmsBaseUrl: context.cmsBaseUrl,
     cmsReadApiKey: context.cmsReadApiKey,
     environment: context.environment,
+    analyticsbaseurl: context.analyticsbaseurl,
+    analyticsApiKey: context.analyticsApiKey,
     domain: context.domain,
   });
 
